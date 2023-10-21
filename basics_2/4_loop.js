@@ -99,5 +99,28 @@
 // let arr=array.filter((i)=> { return i*2})  //explicit return ,using return keyword inside '{ }'
 // console.log(arr);
 
-// let arr=array.filter((i)=> { return i>2}) 
+// let arr=array.filter((i)=> { return i>2})  // retun value which are true
 // console.log(arr);
+
+
+//❤️ map function >>return value
+
+// const myNum=[1,2,3,4,5,6]
+
+// let num = myNum.map((i)=> i>2) //return true / false array for this condition 
+// console.log(num);
+
+//  let num = myNum.map((i)=> i*2).map((i)=> i+10)  //chaining
+//  console.log(num);
+
+//  let num = myNum.map((i)=> i*3).filter((i)=> i>10) 
+//  console.log(num);
+
+ //❤️ reduce function 
+
+ const myNum=[1,2,3,4,5,6]
+ 
+//  let total = myNum.reduce(function(acc,curr){return acc+=curr},0)
+
+let total = myNum.reduce((acc,curr)=>acc+=curr,0)
+console.log(total);
