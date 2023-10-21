@@ -1,0 +1,9 @@
+window => documnet => html => head & body
+                                head => title & meta
+                                        title =>text node
+                                        meta =>attribute
+
+                                body => div => h & p
+                                               h => attribute & text node
+                                               p => attribute & text node
+
