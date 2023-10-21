@@ -49,7 +49,7 @@
 // function print(i) {
 //     console.log(i);
 // }
-// arr.forEach( print)
+// arr.forEach( print) 
 
 // let array =[
 //     {
@@ -72,5 +72,32 @@
 //     console.log(i["1"]);
 // });
 
+//>>there is callback in for-each loop
 
 
+// let array =[1,2,3,4,5]
+
+// let arr= array.forEach( i => {
+//     // console.log(i);
+//     // i*2;
+//     return i*2;
+// })
+
+// console.log(arr[0]); //gave undefined >> this callback return nothing
+
+
+// =============❤️❤️ to return value from loop we use these method================//
+
+// ❤️ fliter function >> return value to new array
+
+// let array =[1,2,3,4,5]
+
+// let arr=array.filter((i)=>  i*2) //implicit return ,not using '{}' 
+
+// let arr=array.filter((i)=> {i*2}) //gave empty arr value
+
+// let arr=array.filter((i)=> { return i*2})  //explicit return ,using return keyword inside '{ }'
+// console.log(arr);
+
+// let arr=array.filter((i)=> { return i>2}) 
+// console.log(arr);
