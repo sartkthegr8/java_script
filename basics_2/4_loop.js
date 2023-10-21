@@ -118,8 +118,8 @@
 
  //❤️ reduce function 
 
- const myNum=[1,2,3,4,5,6] 
-//  let total = myNum.reduce(function(acc,curr){return acc+=curr},0)
+//  const myNum=[1,2,3,4,5,6] 
+// //  let total = myNum.reduce(function(acc,curr){return acc+=curr},0)
 
-let total = myNum.reduce((acc,curr)=>acc+=curr,0)
-console.log(total);
+// let total = myNum.reduce((acc,curr)=>acc+=curr,0)
+// console.log(total);
