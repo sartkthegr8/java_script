@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>      
+</body>
+<script>
+    // ❤️ Edit and Delete DOM element
+
+    // 🙅‍♂️ func() to add element  >>not optimized way becoz tree traversing every time new element id added
+    function addlang(langName) {
+        const li = document.createElement('li');
+        li.innerHTML = langName; // Fix the typo here
+        document.querySelector('.language').appendChild(li);
+    }
+    addlang("--python");
+    addlang("--C");
+    addlang("--java");
+
+
+    // 🙅‍♂️ optimized func() to add element  >>direct create a node and add int DOM >> No tree traversing
+    function addOPT(langName) {
+        const li = document.createElement('li');
+      
+        // li.innerHTML = langName; // Fix the typo here
+        // document.querySelector('.language').appendChild(li);
+        // ❤️optimize way >>
+
+        const addText= document.createTextNode(langName);
+        li.appendChild(addText);  
+
+        document.querySelector('.language').appendChild(li);
+      
+    }
+    addOPT("++SQL");
+    addOPT("++DBMS");
+
+    // ❤️ Edit the element
+
+    const secondlist = document.querySelector("li:nth-child(2)")
+    // secondlist.innerHTML="MOJO"; 
+    //🙅‍♂️ not optimize >> direct change the content of element
+
+    // 🙅‍♂️optimize >> first making new element,then put content in this element then replace with older one.
+    const newli=document.createElement('li')
+    newli.textContent="MOJO"
+    secondlist.replaceWith(newli) //python replace
+
+    // another approach
+    const firstlist = document.querySelector("li:first-child")
+    firstlist.outerHTML='<li>TypeScript</li>' //javascript replace
+
+    // ❤️ Delete the element
+
+    const lastlist =document.querySelector("li:last-child")
+    lastlist.remove(); //DBMS remove
+
+</script>
+</html>
