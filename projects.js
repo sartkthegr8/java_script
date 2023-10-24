@@ -65,10 +65,121 @@ form.addEventListener('submit', (e) => {
 
 // ❤️❤️❤️3
 
+const clock = document.getElementById('clock');
+// clock.innerHTML = 'hello';
+
+setInterval(() => {
+  let date = new Date();
+  let time = date.toLocaleTimeString();
+  clock.innerHTML = time;
+}, 1000);
+
 
 // ========================================================================================================================================================
 
 // ❤️❤️❤️❤️4
+
+let randomNumber = parseInt(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numGuess = 1;
+
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', (e) => {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+// function validateGuess(guess) {}
+// function checkGuess(guess) {}
+// function displayGuess(guess) {}
+// function displayMessage(message) {}
+// function endGame() {}
+// function newGame() {}
+
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert('PLease enter a valid number');
+  } else if (guess < 1) {
+    alert('PLease enter a number more than 1');
+  } else if (guess > 100) {
+    alert('PLease enter a  number less than 100');
+  } else {
+    //push in array
+    prevGuess.push(guess);
+    console.log(prevGuess);
+    if (numGuess === 11) {
+      displayGuess(guess);
+      displayMessage(`Game Over. Random number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function displayGuess(guess) {
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess}, `;
+  numGuess++;
+  remaining.innerHTML = `${11 - numGuess} `;
+}
+
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`You guessed it right`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage(`Number is TOOO low`);
+  } else if (guess > randomNumber) {
+    displayMessage(`Number is TOOO High`);
+  }
+}
+
+function displayMessage(message) {
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+//❤️IMP
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start new Game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (e) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${11 - numGuess} `;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+
+    playGame = true;
+  });
+}
 
 
 // ========================================================================================================================================================
