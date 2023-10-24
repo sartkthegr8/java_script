@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    //🙅‍♂️ 1st method to alert() for on click function 
+    // not optimized cause not giving much information
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+   
+    //🙅‍♂️ more method to alert() for on click function  
+    // attachEvent()
+    // jQuery - onclick
+
+    // ❤️ use eventlistener to alert()
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log(e); //show all [e->object] methods given by objects in console
+        
+    // })
+
+    // 🙅‍♂️methods gave by object
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // ❤️Bubbling and capturing ....using third argument ( TRUE / FALSE ) of addEventListener('x',f(),False) 
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the url");         
+    // },True)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl pai clicked kiya");         
+    // },True)
+
+    // if False ❌ >> 📒BUBBLE  concept happen like => first inside(child)   > ouside(parent)
+        //False ❌ => Defualt value
+    // e.stopPropagation() => stop the Bubbling happening in envents => ⭐ only inside event happen 
+
+
+    // if True ✅ >> 📒CAPTURING concept happen like  => first outside(parent) > inside(child)
+
+    // ❤️ defaultPrevented()
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.defaultPrevented(); //prevent link click reference beahavior of anchor tag
+    //     console.log("owl pai clicked kiya");         
+    // },False)
+
+
+    // 📒? task > when we click the image , image dissapear
+    
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e.target.parentNode); //chaining happpen
+       
+        //to prevent event spill over we use if condition here other wise on click other tag this func() also happen
+       if(e.target.tagName==='IMG'){
+        let removeT = e.target.parentNode;
+        removeT.remove() //1st way
+
+        // removeT.parentNode.removeChild(removeT) //2nd way
+       }
+  
+    },False)
+
+
+</script>
+</html>
