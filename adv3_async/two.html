@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chai aur code</title>
 </head>
 <body>
     <h2>Chai aur code</h2>
@@ -11,27 +11,21 @@
     <button id="start">Start</button>
 </body>
 <script>
-
-    const sayDate = ()=>{
-        console.log("yoho",Date.now());
+    const sayDate = () => {
+        console.log("yoho", Date.now());
     }
 
-    const intervalId=()=>{
-       setInterval(sayDate,2000,); 
+    let intervalId; // Declare intervalId as a global variable
+
+    const startInterval = () => {
+        intervalId = setInterval(sayDate, 2000);
     }
-   
-   
-   const clearId = ()=>{
-       clearInterval(intervalId);
-    } 
-   
 
-    document.querySelector("#start").addEventListener('click',intervalId);
+    const stopInterval = () => {
+        clearInterval(intervalId);
+    }
 
-    document.querySelector("#stop").addEventListener('click',clearId);
-
-  
-
-
+    document.querySelector("#start").addEventListener('click', startInterval);
+    document.querySelector("#stop").addEventListener('click', stopInterval);
 </script>
 </html>
