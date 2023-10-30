@@ -11,18 +11,22 @@
 </body>
 <script>
     //❤️ handler,callback func() , reference ,all are ==>same technique.
-    setTimeout(function(){
-        console.log("sartk");
-    },2000);
+    // setTimeout(function(){
+    //     console.log("sartk");
+    // },2000);
     // setInterval(function(){
     //     console.log("yoho");
     // },2000);
 
     // ❤️
-    // const name =function(){
-    //     console.log("sartk");
-    // }
-    // setInterval(name, 2000); //reference handeler here is 'name'
+    const name =function(){
+        console.log("sartk");
+    }
+
+    // setInterval(name, 2000); //reference handeler here is 'name' 
+
+    const changeMe = setTimeout(name,2000);
+    // clearTimeout(changeMe); //to stop event
 
 
 
