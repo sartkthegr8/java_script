@@ -11,10 +11,24 @@
 <script>
   const requestUrl = 'https://api.github.com/users/mojombo'
   const xhr =  new XMLHttpRequest();
-  // xhr.open('GET',requestUrl) //to track one time
-  xhr.onreadystatechange
-  console.log(xhr.readyState);
-  xhr.send()
+  xhr.open('GET',requestUrl) //to track one time
+    // console.log(xhr.readyState);
+
+  xhr.onreadystatechange = ()=>{
+    console.log(xhr.readyState); //to track continuous
+
+    if(xhr.readyState ===4 ){
+      // const data = (this.responseText) >>undefine , it is string not object
+     
+      const data = JSON.parse(this.responseText);
+      console.log(data.follower);
+      console.log(typeof data);
+
+    }
+
+  }
+  
+  xhr.send();
 
 </script>
 </html>
