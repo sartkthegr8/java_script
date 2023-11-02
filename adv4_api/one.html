@@ -11,8 +11,9 @@
 <script>
   const requestUrl = 'https://api.github.com/users/mojombo'
   const xhr =  new XMLHttpRequest();
-  xhr.open('GET',requestUrl)
-  console.log("here");
+  // xhr.open('GET',requestUrl) //to track one time
+  xhr.onreadystatechange
+  console.log(xhr.readyState);
   xhr.send()
 
 </script>
