@@ -89,20 +89,36 @@
 //  consumedPromiseFive()  
 
 
-//API
+//API 💓💓
 
- async function getAllUsers(){
-    // const requestUrl = 'https://api.github.com/users/mojombo'
-   try {
-        const response = await fetch('https://api.github.com/users/mojombo')
-        // console.log(response);
-        // const data = response.json() //aslso take time so use await
+// 🔥async await method 
+// async function getAllUsers(){
+//     // const requestUrl = 'https://api.github.com/users/mojombo'
+//    try {
+//         const response = await fetch('https://api.github.com/users/mojombo')
+//         // console.log(response);
+//         // const data = response.json() //aslso take time so use await
 
-        const data = await response.json() 
-        console.log(data); 
-   } catch (error) {
-        console.log("ERR :",error);
-   }   
- } 
- getAllUsers()
+//         const data = await response.json() 
+//         console.log(data); 
+//    } catch (error) {
+//         console.log("ERR :",error);
+//    }   
+//  } 
+//  getAllUsers()
+
+
+
+ //🔥then & catch
+
+ fetch('https://api.github.com/users/mojombo')
+ .then((response)=>{
+     return response.json()
+ }).then((data)=>{
+     console.log(data);
+ })
+ .catch((error)=>{
+     console.log(error);
+ })
+ 
 
