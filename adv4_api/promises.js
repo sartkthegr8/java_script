@@ -60,8 +60,8 @@
 
 const promiseFive = new Promise(function (resolve,reject) {   
     setTimeout(function(){
-        let error =false
-        // let error =true
+        // let error =false
+        let error =true
         if(!error){
              resolve({username:"sartk",email:"sartk@email.com"}); 
         }else{
@@ -70,9 +70,21 @@ const promiseFive = new Promise(function (resolve,reject) {
     },2000)
 })
 //use asysnc await  🔥
+// async function consumedPromiseFive(){
+//    const response = await promiseFive 
+//    console.log(response);
+// }
+// consumedPromiseFive()  
+//async & await cant handel the errors directly like then & catch
+//It handel error gracefully
+
 async function consumedPromiseFive(){
-   const response = await promiseFive 
-   console.log(response);
-}
-consumedPromiseFive()  //async & await cant handel the errors directly like then & catch
+    try{
+        const response = await promiseFive 
+        console.log(response);
+    }catch(error){
+        console.log(error);
+    }
+ }
+ consumedPromiseFive()  
 
