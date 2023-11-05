@@ -34,11 +34,15 @@ const promiseFour = new Promise(function (resolve,reject) {
     setTimeout(function(){
         let error =true
         if(!error){
-        resolve({username:"chai",email:"chai@email.com"}); 
+             resolve({username:"sartk",email:"sartk@email.com"}); 
+        }else{
+             reject('ERROR : Something Wrong')
         }
     },2000)
 })
-promiseFour.then(function(user){
+promiseFour.then((user)=>{
     console.log(user);
-})
+    return user.username
+}).then((username)=>{
 
+})
