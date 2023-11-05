@@ -58,17 +58,17 @@
 // })
 
 
-const promiseFive = new Promise(function (resolve,reject) {   
-    setTimeout(function(){
-        // let error =false
-        let error =true
-        if(!error){
-             resolve({username:"sartk",email:"sartk@email.com"}); 
-        }else{
-             reject('ERROR : Something Wrong 😭😭😭')
-        }
-    },2000)
-})
+// const promiseFive = new Promise(function (resolve,reject) {   
+//     setTimeout(function(){
+//         // let error =false
+//         let error =true
+//         if(!error){
+//              resolve({username:"sartk",email:"sartk@email.com"}); 
+//         }else{
+//              reject('ERROR : Something Wrong 😭😭😭')
+//         }
+//     },2000)
+// })
 //use asysnc await  🔥
 // async function consumedPromiseFive(){
 //    const response = await promiseFive 
@@ -78,19 +78,31 @@ const promiseFive = new Promise(function (resolve,reject) {
 //async & await cant handel the errors directly like then & catch
 //It handel error gracefully
 
-async function consumedPromiseFive(){
-    try{
-        const response = await promiseFive 
-        console.log(response);
-    }catch(error){
-        console.log(error);
-    }
- }
- consumedPromiseFive()  
+// async function consumedPromiseFive(){
+//     try{
+//         const response = await promiseFive 
+//         console.log(response);
+//     }catch(error){
+//         console.log(error);
+//     }
+//  }
+//  consumedPromiseFive()  
+
+
+//API
 
  async function getAllUsers(){
     // const requestUrl = 'https://api.github.com/users/mojombo'
-    const response = await fetch('https://api.github.com/users/mojombo')
-    const date = response.json()
- }
+   try {
+        const response = await fetch('https://api.github.com/users/mojombo')
+        // console.log(response);
+        // const data = response.json() //aslso take time so use await
+
+        const data = await response.json() 
+        console.log(data); 
+   } catch (error) {
+        console.log("ERR :",error);
+   }   
+ } 
+ getAllUsers()
 
