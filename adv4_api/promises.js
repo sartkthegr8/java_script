@@ -88,3 +88,9 @@ async function consumedPromiseFive(){
  }
  consumedPromiseFive()  
 
+ async function getAllUsers(){
+    // const requestUrl = 'https://api.github.com/users/mojombo'
+    const response = await fetch('https://api.github.com/users/mojombo')
+    const date = response.json()
+ }
+
