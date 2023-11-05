@@ -6,11 +6,11 @@
 //             console.log('Async task complete');
 //             resolve(); //it triggered .then
 //         },2000)
-// });
-
+// })
 // promiseOne.then(function(){
 //     console.log("Promise consumed"); //only work when resolve() call;
 // })
+
 
 // const promiseTwo = new Promise(function (resolve,reject) {   
 //     setTimeout(function(){
@@ -21,6 +21,8 @@
 //     console.log("Async 2 resolver");
 // })
 
+
+
 // const promiseThree = new Promise(function (resolve,reject) {   
 //     setTimeout(function(){
 //         resolve({username:"chai",email:"chai@email.com"}); 
@@ -30,19 +32,39 @@
 //     console.log(user);
 // })
 
-const promiseFour = new Promise(function (resolve,reject) {   
+
+// const promiseFour = new Promise(function (resolve,reject) {   
+//     setTimeout(function(){
+//         let error =false //or true
+//         if(!error){
+//              resolve({username:"sartk",email:"sartk@email.com"}); 
+//         }else{
+//              reject('ERROR : Something Wrong 😭😭😭')
+//         }
+//     },2000)
+// })
+// promiseFour.then((user)=>{
+//     console.log(user);
+//     return user.username
+// })
+// .then((username)=>{
+//     console.log(username);
+// })
+// .catch(function(error){
+//     console.log(error);
+// })
+// .finally(()=>{
+//     console.log("Finally promise is resolved or rejected👉👈");
+// })
+
+
+const promiseFive = new Promise(function (resolve,reject) {   
     setTimeout(function(){
-        let error =true
+        let error =false //or true
         if(!error){
              resolve({username:"sartk",email:"sartk@email.com"}); 
         }else{
-             reject('ERROR : Something Wrong')
+             reject('ERROR : Something Wrong 😭😭😭')
         }
     },2000)
-})
-promiseFour.then((user)=>{
-    console.log(user);
-    return user.username
-}).then((username)=>{
-
 })
