@@ -11,6 +11,11 @@ function User(username,loginCount,isLoggedIn){
     return this
 }
 
-const userOne = User("hitesh",12,true)
-console.log(userOne);
+// const userOne = User("hitesh",12,true)
+// const userTwo = User("sarthak",222,true)
+// console.log(userOne); //overwrite by userTwo , ie: we use 'new'->constructor
  
+const userOne = new User("hitesh",12,true)
+const userTwo = new User("sarthak",222,true)
+// console.log(userOne); //overwrite by userTwo , ie: we use 'new'->constructor
+// console.log(userOne.constructor);
